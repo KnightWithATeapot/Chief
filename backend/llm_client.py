@@ -59,7 +59,7 @@ class GroqClient:
 
         text = data["choices"][0]["message"]["content"]
 
-        # Удаляем <think> блоки, которые часто выдаёт DeepSeek/R1
+        # удаляем блоки с рассуждениями, если они есть
         if "<think>" in text:
             try:
                 text = text.split("</think>")[-1].strip()
